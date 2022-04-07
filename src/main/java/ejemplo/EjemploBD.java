@@ -38,12 +38,22 @@ public class EjemploBD {
         
     }
     
+    /**
+     * Permite mostrar el mapa de personas por pantalla
+     * @param personas Personas a mostrar por pantalla
+     */
     public static void mostrarPersonas(Map<String, Persona> personas) {
         for (Map.Entry<String, Persona> personasEntry: personas.entrySet()) {
             System.out.println(personasEntry.getValue().toPrint());
         }
     }
     
+    /**
+     * Permite la operacion de insercion de una nueva persona
+     * @param lector BufferedReader con el lector de datos
+     * @return Persona a agregar a la BD
+     * @throws IOException Posibles errores de entrada y salida de datos
+     */
     public static Persona insertarPersona(BufferedReader lector) throws IOException {
         System.out.print("Ingrese RUT de la persona: ");
         String rut = lector.readLine();
@@ -61,6 +71,13 @@ public class EjemploBD {
         return new Persona(rut, nombres, apPat, apMat, email, telefono);        
     }
     
+    /**
+     * Permite la operacion de actualizacion de correo electronico de una persona
+     * @param lector BufferedReader con el lector de datos
+     * @param data Objeto PersonaBD con conexion a BD
+     * @return Persona a actualizar
+     * @throws IOException Posibles errores de entrada y salida de datos
+     */
     public static Persona actualizarPersona(BufferedReader lector, PersonaBD data) throws IOException {
         System.out.print("Ingrese RUT de la persona: ");
         String rut = lector.readLine();
@@ -71,6 +88,13 @@ public class EjemploBD {
         return persona;
     }
     
+    /**
+     * Permite la operacion de borrado de una persona de la BD
+     * @param lector BufferedReader con el lector de datos
+     * @param data Objeto PersonaBD con conexion a BD
+     * @return RUT de la persona a eliminar
+     * @throws IOException Posibles errores de entrada y salida de datos
+     */
     public static String eliminarPersona(BufferedReader lector, PersonaBD data) throws IOException {
         System.out.print("Ingrese RUT de la persona: ");
         String rut = lector.readLine();
